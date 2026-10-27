@@ -119,6 +119,7 @@ tests/
   fixtures/          recorded.jsonl: real model outputs, keyed by request hash.
 java/                Maven project (wrapper `mvnw` checked in): the same study on Spring AI, ArchUnit, parity test.
 scripts/             make_data.py (deterministic data generator).
+tech/                one note per technology used here, for a reader who has met none of them (tech/README.md is the index).
 ```
 
 The dependency rule is enforced by `make lint` through import-linter (layers contract, plus a contract that forbids `domain` and `application` from importing `httpx`, `anthropic` or `openai`) and, in Java, by ArchUnit.
