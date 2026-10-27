@@ -6,7 +6,7 @@
 
 ## Why this repository uses it
 
-This repository carries 13 Markdown files: the README with the lesson's Done-when table, ARCHITECTURE.md with the diagram of the layers and data flow, the architecture decision records, the changelog, and the prompt templates the program sends to models (a prompt is a text file, so it is versioned with the code).
+This repository carries 47 Markdown files: the README with the lesson's Done-when table, ARCHITECTURE.md with the diagram of the layers and data flow, the architecture decision records, the changelog, and the prompt templates the program sends to models (a prompt is a text file, so it is versioned with the code).
 
 ## Where it appears
 
