@@ -1,0 +1,9 @@
+{
+  "written": "2026-10-27, before any model had answered a task",
+  "false_accept_bar": 0.10,
+  "hard_accuracy_bar": 0.5,
+  "accuracy_margin": 0.02,
+  "request_cap": 0.0008,
+  "tighten_at": 0.8,
+  "day_budget_fractions": [0.5, 0.3]
+}
