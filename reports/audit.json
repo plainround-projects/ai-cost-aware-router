@@ -1,0 +1,44 @@
+{
+  "before": {
+    "by_tier": {
+      "large": 5
+    },
+    "by_tier_and_check": {
+      "large/policy_quote": {
+        "count": 5,
+        "tasks": [
+          "t235",
+          "t250",
+          "t255",
+          "t290",
+          "t295"
+        ]
+      }
+    },
+    "false_accepts": 5
+  },
+  "change": {
+    "accuracy_after": 0.666667,
+    "accuracy_before": 0.713333,
+    "config_after": {
+      "hard_start": {
+        "refund": "medium"
+      },
+      "label_check": "agreement",
+      "policy_check": "overlap",
+      "request_cap": 0.0008,
+      "start": {
+        "label": "large",
+        "policy": "large",
+        "refund": "small"
+      },
+      "tighten_at": 0.8
+    },
+    "cost_per_correct_after": 0.000595,
+    "cost_per_correct_before": 0.000556,
+    "description": "policy answers must quote the line that best matches the question, not just any line",
+    "false_accepts_after": 3,
+    "false_accepts_before": 5,
+    "kind": "policy"
+  }
+}

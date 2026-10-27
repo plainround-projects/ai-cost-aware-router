@@ -1,0 +1,52 @@
+{
+  "days": [
+    {
+      "accuracy_after": {
+        "high": 0.229171,
+        "low": 0.094188,
+        "successes": 16,
+        "trials": 107,
+        "value": 0.149533
+      },
+      "accuracy_before": {
+        "high": 0.813982,
+        "low": 0.548944,
+        "successes": 30,
+        "trials": 43,
+        "value": 0.697674
+      },
+      "budget": 0.021698,
+      "crossed_at": 43,
+      "fraction": 0.5,
+      "large_served_after": 0,
+      "outcomes": [],
+      "requests_over_cap": 0,
+      "spent": 0.021643,
+      "under_budget": true
+    },
+    {
+      "accuracy_after": {
+        "high": 0.112823,
+        "low": 0.027838,
+        "successes": 7,
+        "trials": 123,
+        "value": 0.056911
+      },
+      "accuracy_before": {
+        "high": 0.813569,
+        "low": 0.478244,
+        "successes": 18,
+        "trials": 27,
+        "value": 0.666667
+      },
+      "budget": 0.013019,
+      "crossed_at": 27,
+      "fraction": 0.3,
+      "large_served_after": 0,
+      "outcomes": [],
+      "requests_over_cap": 0,
+      "spent": 0.012989,
+      "under_budget": true
+    }
+  ]
+}

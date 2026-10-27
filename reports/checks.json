@@ -1,0 +1,295 @@
+{
+  "bar": 0.1,
+  "rates": {
+    "large": {
+      "label": {
+        "label_agreement": {
+          "accepted": 53,
+          "false_accept_rate": 0.0,
+          "false_accepts": 0,
+          "false_reject_rate": 0.0,
+          "false_rejects": 0,
+          "right": 53,
+          "wrong": 7,
+          "wrong_among_accepted": 0.0
+        },
+        "label_shape": {
+          "accepted": 53,
+          "false_accept_rate": 0.0,
+          "false_accepts": 0,
+          "false_reject_rate": 0.0,
+          "false_rejects": 0,
+          "right": 53,
+          "wrong": 7,
+          "wrong_among_accepted": 0.0
+        }
+      },
+      "policy": {
+        "policy_quote": {
+          "accepted": 38,
+          "false_accept_rate": 0.6,
+          "false_accepts": 3,
+          "false_reject_rate": 0.0,
+          "false_rejects": 0,
+          "right": 35,
+          "wrong": 5,
+          "wrong_among_accepted": 0.078947
+        }
+      },
+      "refund": {
+        "refund_recompute": {
+          "accepted": 7,
+          "false_accept_rate": 0.0,
+          "false_accepts": 0,
+          "false_reject_rate": 0.0,
+          "false_rejects": 0,
+          "right": 7,
+          "wrong": 43,
+          "wrong_among_accepted": 0.0
+        }
+      }
+    },
+    "medium": {
+      "label": {
+        "label_agreement": {
+          "accepted": 36,
+          "false_accept_rate": 0.510204,
+          "false_accepts": 25,
+          "false_reject_rate": 0.0,
+          "false_rejects": 0,
+          "right": 11,
+          "wrong": 49,
+          "wrong_among_accepted": 0.694444
+        },
+        "label_shape": {
+          "accepted": 37,
+          "false_accept_rate": 0.530612,
+          "false_accepts": 26,
+          "false_reject_rate": 0.0,
+          "false_rejects": 0,
+          "right": 11,
+          "wrong": 49,
+          "wrong_among_accepted": 0.702703
+        }
+      },
+      "policy": {
+        "policy_quote": {
+          "accepted": 40,
+          "false_accept_rate": 1.0,
+          "false_accepts": 2,
+          "false_reject_rate": 0.0,
+          "false_rejects": 0,
+          "right": 38,
+          "wrong": 2,
+          "wrong_among_accepted": 0.05
+        }
+      },
+      "refund": {
+        "refund_recompute": {
+          "accepted": 18,
+          "false_accept_rate": 0.0,
+          "false_accepts": 0,
+          "false_reject_rate": 0.0,
+          "false_rejects": 0,
+          "right": 18,
+          "wrong": 32,
+          "wrong_among_accepted": 0.0
+        }
+      }
+    },
+    "small": {
+      "label": {
+        "label_agreement": {
+          "accepted": 60,
+          "false_accept_rate": 1.0,
+          "false_accepts": 44,
+          "false_reject_rate": 0.0,
+          "false_rejects": 0,
+          "right": 16,
+          "wrong": 44,
+          "wrong_among_accepted": 0.733333
+        },
+        "label_shape": {
+          "accepted": 60,
+          "false_accept_rate": 1.0,
+          "false_accepts": 44,
+          "false_reject_rate": 0.0,
+          "false_rejects": 0,
+          "right": 16,
+          "wrong": 44,
+          "wrong_among_accepted": 0.733333
+        }
+      },
+      "policy": {
+        "policy_quote": {
+          "accepted": 40,
+          "false_accept_rate": 1.0,
+          "false_accepts": 16,
+          "false_reject_rate": 0.0,
+          "false_rejects": 0,
+          "right": 24,
+          "wrong": 16,
+          "wrong_among_accepted": 0.4
+        }
+      },
+      "refund": {
+        "refund_recompute": {
+          "accepted": 10,
+          "false_accept_rate": 0.0,
+          "false_accepts": 0,
+          "false_reject_rate": 0.0,
+          "false_rejects": 0,
+          "right": 10,
+          "wrong": 40,
+          "wrong_among_accepted": 0.0
+        }
+      }
+    }
+  },
+  "rates_test": {
+    "large": {
+      "label": {
+        "label_agreement": {
+          "accepted": 53,
+          "false_accept_rate": 0.0,
+          "false_accepts": 0,
+          "false_reject_rate": 0.0,
+          "false_rejects": 0,
+          "right": 53,
+          "wrong": 7,
+          "wrong_among_accepted": 0.0
+        },
+        "label_shape": {
+          "accepted": 53,
+          "false_accept_rate": 0.0,
+          "false_accepts": 0,
+          "false_reject_rate": 0.0,
+          "false_rejects": 0,
+          "right": 53,
+          "wrong": 7,
+          "wrong_among_accepted": 0.0
+        }
+      },
+      "policy": {
+        "policy_quote": {
+          "accepted": 38,
+          "false_accept_rate": 0.714286,
+          "false_accepts": 5,
+          "false_reject_rate": 0.0,
+          "false_rejects": 0,
+          "right": 33,
+          "wrong": 7,
+          "wrong_among_accepted": 0.131579
+        }
+      },
+      "refund": {
+        "refund_recompute": {
+          "accepted": 3,
+          "false_accept_rate": 0.0,
+          "false_accepts": 0,
+          "false_reject_rate": 0.0,
+          "false_rejects": 0,
+          "right": 3,
+          "wrong": 47,
+          "wrong_among_accepted": 0.0
+        }
+      }
+    },
+    "medium": {
+      "label": {
+        "label_agreement": {
+          "accepted": 40,
+          "false_accept_rate": 0.6,
+          "false_accepts": 30,
+          "false_reject_rate": 0.0,
+          "false_rejects": 0,
+          "right": 10,
+          "wrong": 50,
+          "wrong_among_accepted": 0.75
+        },
+        "label_shape": {
+          "accepted": 41,
+          "false_accept_rate": 0.62,
+          "false_accepts": 31,
+          "false_reject_rate": 0.0,
+          "false_rejects": 0,
+          "right": 10,
+          "wrong": 50,
+          "wrong_among_accepted": 0.756098
+        }
+      },
+      "policy": {
+        "policy_quote": {
+          "accepted": 40,
+          "false_accept_rate": 1.0,
+          "false_accepts": 6,
+          "false_reject_rate": 0.0,
+          "false_rejects": 0,
+          "right": 34,
+          "wrong": 6,
+          "wrong_among_accepted": 0.15
+        }
+      },
+      "refund": {
+        "refund_recompute": {
+          "accepted": 19,
+          "false_accept_rate": 0.0,
+          "false_accepts": 0,
+          "false_reject_rate": 0.0,
+          "false_rejects": 0,
+          "right": 19,
+          "wrong": 31,
+          "wrong_among_accepted": 0.0
+        }
+      }
+    },
+    "small": {
+      "label": {
+        "label_agreement": {
+          "accepted": 60,
+          "false_accept_rate": 1.0,
+          "false_accepts": 42,
+          "false_reject_rate": 0.0,
+          "false_rejects": 0,
+          "right": 18,
+          "wrong": 42,
+          "wrong_among_accepted": 0.7
+        },
+        "label_shape": {
+          "accepted": 60,
+          "false_accept_rate": 1.0,
+          "false_accepts": 42,
+          "false_reject_rate": 0.0,
+          "false_rejects": 0,
+          "right": 18,
+          "wrong": 42,
+          "wrong_among_accepted": 0.7
+        }
+      },
+      "policy": {
+        "policy_quote": {
+          "accepted": 40,
+          "false_accept_rate": 1.0,
+          "false_accepts": 20,
+          "false_reject_rate": 0.0,
+          "false_rejects": 0,
+          "right": 20,
+          "wrong": 20,
+          "wrong_among_accepted": 0.5
+        }
+      },
+      "refund": {
+        "refund_recompute": {
+          "accepted": 8,
+          "false_accept_rate": 0.0,
+          "false_accepts": 0,
+          "false_reject_rate": 0.0,
+          "false_rejects": 0,
+          "right": 8,
+          "wrong": 42,
+          "wrong_among_accepted": 0.0
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "cheapest_matching": {
+    "label": "large",
+    "policy": "medium",
+    "refund": "small"
+  },
+  "prices": {
+    "as_of": "2026-10-27",
+    "per_1k_tokens": {
+      "large": 0.0012,
+      "medium": 0.0005,
+      "small": 0.0002
+    }
+  },
+  "table": {
+    "large": {
+      "label": {
+        "accuracy": {
+          "high": 0.942324,
+          "low": 0.77821,
+          "successes": 53,
+          "trials": 60,
+          "value": 0.883333
+        },
+        "cost_per_call": 0.000248,
+        "cost_per_correct": 0.000281
+      },
+      "policy": {
+        "accuracy": {
+          "high": 0.945406,
+          "low": 0.738876,
+          "successes": 35,
+          "trials": 40,
+          "value": 0.875
+        },
+        "cost_per_call": 0.000408,
+        "cost_per_correct": 0.000466
+      },
+      "refund": {
+        "accuracy": {
+          "high": 0.261865,
+          "low": 0.069507,
+          "successes": 7,
+          "trials": 50,
+          "value": 0.14
+        },
+        "cost_per_call": 0.000248,
+        "cost_per_correct": 0.001769
+      }
+    },
+    "medium": {
+      "label": {
+        "accuracy": {
+          "high": 0.2992,
+          "low": 0.105577,
+          "successes": 11,
+          "trials": 60,
+          "value": 0.183333
+        },
+        "cost_per_call": 0.000102,
+        "cost_per_correct": 0.000555
+      },
+      "policy": {
+        "accuracy": {
+          "high": 0.98618,
+          "low": 0.834958,
+          "successes": 38,
+          "trials": 40,
+          "value": 0.95
+        },
+        "cost_per_call": 0.000172,
+        "cost_per_correct": 0.000181
+      },
+      "refund": {
+        "accuracy": {
+          "high": 0.498592,
+          "low": 0.241386,
+          "successes": 18,
+          "trials": 50,
+          "value": 0.36
+        },
+        "cost_per_call": 9.6e-05,
+        "cost_per_correct": 0.000267
+      }
+    },
+    "small": {
+      "label": {
+        "accuracy": {
+          "high": 0.39009,
+          "low": 0.171325,
+          "successes": 16,
+          "trials": 60,
+          "value": 0.266667
+        },
+        "cost_per_call": 4.1e-05,
+        "cost_per_correct": 0.000155
+      },
+      "policy": {
+        "accuracy": {
+          "high": 0.736519,
+          "low": 0.445956,
+          "successes": 24,
+          "trials": 40,
+          "value": 0.6
+        },
+        "cost_per_call": 6.8e-05,
+        "cost_per_correct": 0.000113
+      },
+      "refund": {
+        "accuracy": {
+          "high": 0.330374,
+          "low": 0.112436,
+          "successes": 10,
+          "trials": 50,
+          "value": 0.2
+        },
+        "cost_per_call": 4.1e-05,
+        "cost_per_correct": 0.000204
+      }
+    }
+  }
+}

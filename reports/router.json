@@ -1,0 +1,172 @@
+{
+  "by_kind": {
+    "label": {
+      "accuracy": 0.883333,
+      "cost": 0.029717,
+      "n": 60
+    },
+    "policy": {
+      "accuracy": 0.825,
+      "cost": 0.016319,
+      "n": 40
+    },
+    "refund": {
+      "accuracy": 0.42,
+      "cost": 0.013463,
+      "n": 50
+    }
+  },
+  "config": {
+    "hard_start": {
+      "refund": "medium"
+    },
+    "label_check": "agreement",
+    "policy_check": "quote",
+    "request_cap": 0.0008,
+    "start": {
+      "label": "large",
+      "policy": "large",
+      "refund": "small"
+    },
+    "tighten_at": 0.8
+  },
+  "config_no_bar": {
+    "hard_start": {
+      "label": "medium",
+      "refund": "medium"
+    },
+    "label_check": "agreement",
+    "policy_check": "quote",
+    "request_cap": 0.0008,
+    "start": {
+      "label": "small",
+      "policy": "small",
+      "refund": "small"
+    },
+    "tighten_at": 0.8
+  },
+  "methods": {
+    "large": {
+      "accuracy": {
+        "high": 0.66866,
+        "low": 0.513345,
+        "successes": 89,
+        "trials": 150,
+        "value": 0.593333
+      },
+      "cost_per_correct": 0.000488,
+      "cost_per_correct_interval": [
+        0.000435,
+        0.000564
+      ],
+      "escalated": 0,
+      "max_request_spend": 0.000422,
+      "n": 150,
+      "served_by": {
+        "large": 150
+      },
+      "total_cost": 0.043397
+    },
+    "medium": {
+      "accuracy": {
+        "high": 0.500017,
+        "low": 0.343979,
+        "successes": 63,
+        "trials": 150,
+        "value": 0.42
+      },
+      "cost_per_correct": 0.000284,
+      "cost_per_correct_interval": [
+        0.000243,
+        0.000343
+      ],
+      "escalated": 0,
+      "max_request_spend": 0.000179,
+      "n": 150,
+      "served_by": {
+        "medium": 150
+      },
+      "total_cost": 0.017894
+    },
+    "router": {
+      "accuracy": {
+        "high": 0.779663,
+        "low": 0.636349,
+        "successes": 107,
+        "trials": 150,
+        "value": 0.713333
+      },
+      "cost_per_correct": 0.000556,
+      "cost_per_correct_interval": [
+        0.000498,
+        0.000628
+      ],
+      "escalated": 38,
+      "max_request_spend": 0.000547,
+      "n": 150,
+      "served_by": {
+        "escalate_to_person": 38,
+        "large": 92,
+        "medium": 19,
+        "small": 1
+      },
+      "total_cost": 0.059499
+    },
+    "router_no_bar": {
+      "accuracy": {
+        "high": 0.486655,
+        "low": 0.33134,
+        "successes": 61,
+        "trials": 150,
+        "value": 0.406667
+      },
+      "cost_per_correct": 0.000354,
+      "cost_per_correct_interval": [
+        0.000273,
+        0.000476
+      ],
+      "escalated": 30,
+      "max_request_spend": 0.000463,
+      "n": 150,
+      "served_by": {
+        "escalate_to_person": 30,
+        "large": 1,
+        "medium": 22,
+        "small": 97
+      },
+      "total_cost": 0.021586
+    },
+    "small": {
+      "accuracy": {
+        "high": 0.38452,
+        "low": 0.238469,
+        "successes": 46,
+        "trials": 150,
+        "value": 0.306667
+      },
+      "cost_per_correct": 0.000157,
+      "cost_per_correct_interval": [
+        0.000127,
+        0.000205
+      ],
+      "escalated": 0,
+      "max_request_spend": 7e-05,
+      "n": 150,
+      "served_by": {
+        "small": 150
+      },
+      "total_cost": 0.00723
+    }
+  },
+  "verdict": {
+    "accuracy_difference_interval": [
+      0.073333,
+      0.18
+    ],
+    "accuracy_difference_vs_large": 0.12,
+    "cheaper_per_correct": false,
+    "margin": 0.02,
+    "matched_within_margin": true,
+    "verdict": "not cheaper"
+  }
+}
