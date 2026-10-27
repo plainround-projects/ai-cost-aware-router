@@ -1,0 +1,14 @@
+{
+  "hard_start": {
+    "refund": "medium"
+  },
+  "label_check": "agreement",
+  "policy_check": "quote",
+  "request_cap": 0.0008,
+  "start": {
+    "label": "large",
+    "policy": "large",
+    "refund": "small"
+  },
+  "tighten_at": 0.8
+}
