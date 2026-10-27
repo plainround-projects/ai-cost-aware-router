@@ -1,0 +1,5 @@
+{
+  "as_of": "2026-10-27",
+  "note": "Illustrative prices in dollars per 1,000 billed tokens, input and output alike. The three tiers run on a local machine and cost nothing; the table stands in for the price list of three hosted models of rising price and skill.",
+  "per_1k_tokens": {"small": 0.0002, "medium": 0.0005, "large": 0.0012}
+}
