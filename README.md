@@ -15,7 +15,7 @@ A router that sits in front of three models of rising price and skill. It sends 
 | --- | --- | --- |
 | Python | 3.12 or 3.13 (tested with 3.13) | the router, the study, the tests |
 | GNU Make | 3.81 or newer | every command below |
-| JDK and Maven | JDK 21 or newer (tested with 25), Maven 3.9 | the Java (Spring AI) port, step 7 |
+| JDK | JDK 21 or newer (tested with 25); Maven 3.9.9 comes with the checked-in wrapper `java/mvnw` | the Java (Spring AI) port, step 7 |
 | Spring AI | 2.0.1 (with the Spring Boot 4.0.5 dependency BOM) | the Java port's live adapter |
 | ollama | 0.40 or newer, only for `make record` | the three tiers: `qwen2.5:0.5b` (small), `llama3.2:1b` (medium), `qwen2.5:1.5b` (large) |
 | Python packages | `httpx`; pytest, pytest-cov, ruff, mypy, import-linter, pip-audit for development, hash-pinned in `requirements.lock` and `requirements-dev.lock` | everything |
@@ -117,7 +117,7 @@ tests/
   e2e/               the study replayed from fixtures equals the committed configuration and reports.
   live/              opt-in tests against a real server (skipped unless RUN_LIVE=1).
   fixtures/          recorded.jsonl: real model outputs, keyed by request hash.
-java/                Maven project: the same study on Spring AI, ArchUnit, parity test.
+java/                Maven project (wrapper `mvnw` checked in): the same study on Spring AI, ArchUnit, parity test.
 scripts/             make_data.py (deterministic data generator).
 ```
 

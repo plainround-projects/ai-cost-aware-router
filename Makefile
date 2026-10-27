@@ -61,10 +61,10 @@ test-e2e: $(STAMP) ## regenerate the reports from the fixtures and compare them 
 	$(PY) -m pytest tests/e2e -m e2e
 
 java-test: ## step 7: build and test the Java (Spring AI) port
-	cd java && mvn -q -B verify
+	cd java && ./mvnw -q -B verify
 
 parity: $(STAMP) ## step 7: the Java port reproduces the Python report from the same fixtures
-	cd java && mvn -q -B -DskipTests package
+	cd java && ./mvnw -q -B -DskipTests package
 	java -jar java/target/cost-router-java.jar --data data --prompts prompts --config config --fixtures tests/fixtures --out reports/java
 	$(PY) -m cost_router.interfaces.cli parity --java reports/java --python reports
 
