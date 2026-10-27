@@ -23,7 +23,11 @@ LABEL_BANKS: dict[str, dict[str, list[str]]] = {
             "I need a copy of my invoice for last month's payment.",
             "The discount code was not applied and I paid the full price. Please fix the charge.",
         ],
-        "distractor": ["The parcel did arrive, by the way.", "I may also change my password later.", "My order number is {order}."],
+        "distractor": [
+            "The parcel did arrive, by the way.",
+            "I may also change my password later.",
+            "My order number is {order}.",
+        ],
     },
     "shipping": {
         "core": [
@@ -33,7 +37,11 @@ LABEL_BANKS: dict[str, dict[str, list[str]]] = {
             "How long will delivery take to {city}?",
             "The courier left my parcel with a neighbor I do not know. Where is it?",
         ],
-        "distractor": ["I paid by card without problems.", "I might return something else later.", "My account email is the same as always."],
+        "distractor": [
+            "I paid by card without problems.",
+            "I might return something else later.",
+            "My account email is the same as always.",
+        ],
     },
     "returns": {
         "core": [
@@ -43,7 +51,11 @@ LABEL_BANKS: dict[str, dict[str, list[str]]] = {
             "Please send me a return label for order {order}.",
             "I changed my mind about the headphones. What is the process to give them back?",
         ],
-        "distractor": ["I was charged {amount} for it.", "Delivery was fast, thank you.", "I could not log in to the site yesterday."],
+        "distractor": [
+            "I was charged {amount} for it.",
+            "Delivery was fast, thank you.",
+            "I could not log in to the site yesterday.",
+        ],
     },
     "account": {
         "core": [
@@ -53,7 +65,11 @@ LABEL_BANKS: dict[str, dict[str, list[str]]] = {
             "My account shows someone else's name. Can you check it?",
             "I want to turn off marketing emails from my account settings but the page fails.",
         ],
-        "distractor": ["I have an order {order} in progress.", "I was billed {amount} last month.", "The delivery was on time."],
+        "distractor": [
+            "I have an order {order} in progress.",
+            "I was billed {amount} last month.",
+            "The delivery was on time.",
+        ],
     },
 }
 CITIES = ["Austin", "Leeds", "Perth", "Toronto", "Dublin", "Oslo"]
@@ -73,7 +89,12 @@ def label_tasks(rng: random.Random, count: int) -> list[dict]:
         gold = categories[i % 4]
         hard = (i // 4) % 2 == 1
         bank = LABEL_BANKS[gold]
-        fill = {"order": order_id(rng), "amount": rng.choice(AMOUNTS), "other": rng.choice(AMOUNTS), "city": rng.choice(CITIES)}
+        fill = {
+            "order": order_id(rng),
+            "amount": rng.choice(AMOUNTS),
+            "other": rng.choice(AMOUNTS),
+            "city": rng.choice(CITIES),
+        }
         sentences = [rng.choice(bank["core"]).format(**fill)]
         if hard:
             other = rng.choice([c for c in categories if c != gold])
@@ -96,7 +117,15 @@ def refund_tasks(rng: random.Random, count: int) -> list[dict]:
             partial = hard and rng.random() < 0.6
             returned = total // 2 if partial else total
             damaged = hard and rng.random() < 0.4
-            orders.append({"order_id": order_id(rng), "total_cents": total, "days": days, "returned_cents": returned, "damaged": damaged})
+            orders.append(
+                {
+                    "order_id": order_id(rng),
+                    "total_cents": total,
+                    "days": days,
+                    "returned_cents": returned,
+                    "damaged": damaged,
+                }
+            )
         parts = []
         for o in orders:
             sentence = f"Order {o['order_id']} totaled ${o['total_cents'] / 100:.2f} and arrived {o['days']} days ago."
@@ -109,20 +138,46 @@ def refund_tasks(rng: random.Random, count: int) -> list[dict]:
             parts.append(sentence)
         text = " ".join(parts) + " How much will I be refunded?"
         gold = sum(refund_cents(o) for o in orders)
-        tasks.append({"kind": "refund", "difficulty": "hard" if hard else "easy", "text": text, "gold": gold, "orders": orders})
+        tasks.append(
+            {"kind": "refund", "difficulty": "hard" if hard else "easy", "text": text, "gold": gold, "orders": orders}
+        )
     return tasks
 
 
 QUESTION_BANK: list[tuple[int, str, str]] = [
     # (line index, easy question, hard question)
-    (0, "How many days do I have to return an item?", "I got my parcel 12 days ago and want to send it back: is that still inside the time limit for returns?"),
-    (1, "Who pays for return shipping?", "If I just don't want the item any more, am I the one who pays to post it back?"),
-    (2, "How long do refunds take?", "Once you have my returned item, in how many business days will the money show up?"),
+    (
+        0,
+        "How many days do I have to return an item?",
+        "I got my parcel 12 days ago and want to send it back: is that still inside the time limit for returns?",
+    ),
+    (
+        1,
+        "Who pays for return shipping?",
+        "If I just don't want the item any more, am I the one who pays to post it back?",
+    ),
+    (
+        2,
+        "How long do refunds take?",
+        "Once you have my returned item, in how many business days will the money show up?",
+    ),
     (3, "Can I exchange an item?", "Can I swap this for a different size without paying again?"),
-    (4, "What happens if an item arrives damaged?", "My vase arrived in pieces, which rule covers that and what do I get?"),
+    (
+        4,
+        "What happens if an item arrives damaged?",
+        "My vase arrived in pieces, which rule covers that and what do I get?",
+    ),
     (5, "Can I use a gift card on any order?", "Is a gift card allowed to pay for shipping on my order?"),
-    (6, "How long is the warranty on electronics?", "My headphones stopped working after 8 months. Are they still covered?"),
-    (7, "Do you match lower prices from other shops?", "I saw the same lamp cheaper elsewhere last week. Do you adjust the price?"),
+    (
+        6,
+        "How long is the warranty on electronics?",
+        "My headphones stopped working after 8 months. Are they still covered?",
+    ),
+    (
+        7,
+        "Do you match lower prices from other shops?",
+        "I saw the same lamp cheaper elsewhere last week. Do you adjust the price?",
+    ),
     (8, "Can I cancel an order after placing it?", "I ordered an hour ago and want to cancel. Is that possible?"),
     (9, "How do you handle my personal data?", "Do you share my email with other companies?"),
 ]
