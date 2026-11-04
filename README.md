@@ -9,6 +9,24 @@ A router that sits in front of three models of rising price and skill. It sends 
 | **Level** | Intermediate |
 | **Architecture** | [ARCHITECTURE.md](ARCHITECTURE.md), decisions: [docs/adr](docs/adr), prompts: [prompts](prompts) with a [changelog](prompts/CHANGELOG.md) |
 
+## Architecture
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/diagrams/architecture-dark.svg">
+  <img alt="A make run starts interfaces and experiments, which run CostRouter. CostRouter calls ModelTiers, which calls the ChatModel adapters, and AnswerChecks checks each answer, all over a standard-library domain layer with config and recorded fixtures." src="docs/diagrams/architecture.svg">
+</picture>
+
+Each task goes to the cheapest tier its checks trust, and the code layers keep the domain free of any adapter.
+
+## How one run flows
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/diagrams/flow-dark.svg">
+  <img alt="One task through CostRouter.route in eight steps: pick the start tier, estimate against the cap, call the tier, run the check, and end with an answer or a person, with warning rows for a fooled check and for tasks sent to a person." src="docs/diagrams/flow.svg">
+</picture>
+
+A task is tried tier by tier with a check after each answer, and the amber rows show a check that lets a wrong answer through and the 38 of 150 tasks that end with a person.
+
 ## Prerequisites
 
 | Tool | Version | Used for |

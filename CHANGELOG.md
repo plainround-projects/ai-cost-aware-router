@@ -1,5 +1,11 @@
 # Changelog
 
+## [Unreleased]
+
+### Added
+
+- Drawn architecture and flow figures in `docs/diagrams/`, light and dark, shown in the README.
+
 ## 0.1.0 - 2026-10-27
 
 - Domain: tasks and refund arithmetic, answer parsing, ground-truth grading, the label, refund and policy checks (and a stronger policy overlap check), the price table, router configuration, day budget, the difficulty signal, rate and bootstrap metrics.

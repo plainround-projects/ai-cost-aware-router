@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="904" viewBox="0 0 1200 904" role="img" aria-labelledby="t d">
+<title id="t">Architecture of ai-cost-aware-router</title>
+<desc id="d">A make run starts interfaces, which call experiments. Experiments run the CostRouter, which calls ModelTiers and AnswerChecks. ModelTiers calls the ChatModel adapters, which read recorded fixtures. The application uses a domain layer of standard-library code, reads config, and experiments write reports.</desc>
+<style>
+:root{--paper:#0d1117;--ink:#f5f4f8;--mute:#9a96ab;--accent:#6ec8ff;--good:#7ce0a1;--warn:#ffd166}
+text{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,'Liberation Mono',monospace;fill:var(--ink)}
+.title{font-family:Georgia,'Iowan Old Style','Times New Roman',serif;font-size:36px}
+.caption{font-size:16px;fill:var(--mute)}
+.name{font-size:20px;font-weight:600}
+.lane{font-size:17px;font-weight:600}
+.sub{font-size:15px;fill:var(--mute)}
+.label{font-size:15px}
+.tag{font-size:15px;fill:var(--mute)}
+.num{font-size:15px;font-weight:700;fill:var(--paper)}
+.legend{font-size:14px;fill:var(--mute)}
+.t-accent{fill:var(--accent)}
+.t-good{fill:var(--good)}
+.t-warn{fill:var(--warn)}
+.t-ink{fill:var(--ink)}
+.b{font-weight:600}
+.paper{fill:var(--paper);stroke:var(--mute);stroke-opacity:.3}
+.grid{fill:url(#grid)}
+.boundary{fill:var(--mute);fill-opacity:.035;stroke:var(--mute);stroke-opacity:.7;stroke-dasharray:6 5}
+.svc{fill:var(--accent);fill-opacity:.08;stroke:var(--accent);stroke-width:1.25}
+.store{fill:var(--mute);fill-opacity:.1;stroke:var(--mute);stroke-width:1.25}
+.rim{fill:none;stroke:var(--mute);stroke-width:1.25}
+.actor{fill:none;stroke:var(--mute);stroke-width:1.25}
+.slot{fill:var(--accent);fill-opacity:.14;stroke:var(--accent);stroke-width:1}
+.note{fill:var(--warn);fill-opacity:.09;stroke:var(--warn);stroke-width:1}
+.win{fill:var(--good);fill-opacity:.09;stroke:var(--good);stroke-width:1}
+.hair{fill:none;stroke:var(--mute);stroke-opacity:.4;stroke-width:1}
+.zone{fill:var(--accent);fill-opacity:.045;stroke:var(--accent);stroke-width:1.25;stroke-dasharray:6 5}
+.stop{fill:none;stroke:var(--warn);stroke-width:4;stroke-linecap:round}
+.mask{fill:var(--paper)}
+.sync,.async,.read,.fail,.ok{fill:none}
+.sync{stroke:var(--accent);stroke-width:1.75;marker-end:url(#a-sync)}
+.async{stroke:var(--accent);stroke-width:1.75;stroke-dasharray:8 6;marker-end:url(#a-async)}
+.read{stroke:var(--mute);stroke-width:1.75;stroke-linecap:round;stroke-dasharray:1 6;marker-end:url(#a-read)}
+.fail{stroke:var(--warn);stroke-width:2;marker-end:url(#a-fail)}
+.ok{stroke:var(--good);stroke-width:1.75;marker-end:url(#a-ok)}
+.dot{fill:var(--accent)}
+.dot-w{fill:var(--warn)}
+.dot-g{fill:var(--good)}
+.head-sync,.head-async{stroke:var(--accent)}
+.head-sync{fill:var(--accent)}
+.head-async,.head-read{fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.head-read{stroke:var(--mute)}
+.head-fail{fill:var(--warn)}
+.head-ok{fill:var(--good)}
+.gridline{fill:none;stroke:var(--mute);stroke-opacity:.09}
+</style>
+<defs>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path class="gridline" d="M40 0H0V40"/></pattern>
+<marker id="a-sync" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="head-sync" d="M0 0L10 5L0 10z"/></marker>
+<marker id="a-async" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="head-async" d="M1 1L9 5L1 9"/></marker>
+<marker id="a-read" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="head-read" d="M1 1L9 5L1 9"/></marker>
+<marker id="a-fail" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="head-fail" d="M0 0L10 5L0 10z"/></marker>
+<marker id="a-ok" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="head-ok" d="M0 0L10 5L0 10z"/></marker>
+</defs>
+<rect class="paper" x="0.5" y="0.5" width="1199" height="903" rx="16"/>
+<rect class="grid" x="1" y="1" width="1198" height="902" rx="16"/>
+<text class="title" x="48" y="68">A router that pays for the cheapest tier it trusts</text>
+<text class="caption" x="48" y="100">A cascade of three tiers with a check after each, over a domain layer that never imports an adapter.</text>
+
+<rect class="boundary" x="264" y="132" width="888" height="580" rx="14"/>
+<text class="tag" x="280" y="160">src/cost_router: ports and adapters</text>
+<rect class="actor" x="48" y="176" width="168" height="72" rx="36"/>
+<text class="name" x="132" y="208" text-anchor="middle">make run</text>
+<text class="sub" x="132" y="230" text-anchor="middle">the whole study</text>
+<path class="store" d="M48 324a84 12 0 0 1 168 0v76a84 12 0 0 1 -168 0z"/>
+<path class="rim" d="M48 324a84 12 0 0 0 168 0"/>
+<text class="name" x="132" y="352" text-anchor="middle">reports/</text>
+<text class="sub" x="132" y="374" text-anchor="middle">decisions.jsonl</text>
+<rect class="note" x="48" y="456" width="184" height="138" rx="10"/>
+<text class="label b t-warn" x="64" y="486">make router</text>
+<text class="sub" x="64" y="512">38 of 150 tasks</text>
+<text class="sub" x="64" y="534">go to a person</text>
+<text class="sub" x="64" y="556">after paying for</text>
+<text class="sub" x="64" y="578">failed tiers</text>
+<rect class="svc" x="288" y="176" width="216" height="72" rx="12"/>
+<text class="name" x="304" y="208">interfaces</text>
+<text class="sub" x="304" y="232">cli.py, wiring.py</text>
+<rect class="boundary" x="288" y="272" width="600" height="316" rx="14"/>
+<text class="tag" x="304" y="300">application</text>
+<rect class="svc" x="304" y="324" width="216" height="92" rx="12"/>
+<text class="name" x="320" y="356">experiments</text>
+<text class="sub" x="320" y="380">experiments.py</text>
+<text class="sub" x="320" y="402">measure, tune, route</text>
+<rect class="svc" x="640" y="324" width="216" height="116" rx="12"/>
+<text class="name" x="656" y="356">CostRouter</text>
+<text class="sub" x="656" y="380">router.py</text>
+<text class="sub" x="656" y="402">cap $0.0008/request</text>
+<text class="sub" x="656" y="424">tighten_at 0.8</text>
+<rect class="svc" x="304" y="480" width="216" height="94" rx="12"/>
+<text class="name" x="320" y="512">AnswerChecks</text>
+<text class="sub" x="320" y="536">answer_checks.py</text>
+<text class="sub" x="320" y="558">a check per kind</text>
+<rect class="svc" x="640" y="480" width="216" height="94" rx="12"/>
+<text class="name" x="656" y="512">ModelTiers</text>
+<text class="sub" x="656" y="536">tiers.py</text>
+<text class="sub" x="656" y="558">call(), estimate()</text>
+<rect class="svc" x="976" y="480" width="160" height="116" rx="12"/>
+<text class="name" x="992" y="512">ChatModel</text>
+<text class="sub" x="992" y="536">recorded</text>
+<text class="sub" x="992" y="558">openai_compat</text>
+<text class="sub" x="992" y="580">anthropic</text>
+<rect class="boundary" x="288" y="612" width="600" height="84" rx="14"/>
+<text class="tag" x="304" y="640">domain: standard library only</text>
+<rect class="slot" x="304" y="652" width="69" height="32" rx="6"/>
+<text class="label t-accent" x="338" y="673" text-anchor="middle">tasks</text>
+<rect class="slot" x="385" y="652" width="78" height="32" rx="6"/>
+<text class="label t-accent" x="424" y="673" text-anchor="middle">checks</text>
+<rect class="slot" x="475" y="652" width="87" height="32" rx="6"/>
+<text class="label t-accent" x="518" y="673" text-anchor="middle">routing</text>
+<rect class="slot" x="574" y="652" width="87" height="32" rx="6"/>
+<text class="label t-accent" x="617" y="673" text-anchor="middle">signals</text>
+<rect class="slot" x="673" y="652" width="87" height="32" rx="6"/>
+<text class="label t-accent" x="716" y="673" text-anchor="middle">pricing</text>
+<rect class="slot" x="772" y="652" width="87" height="32" rx="6"/>
+<text class="label t-accent" x="815" y="673" text-anchor="middle">metrics</text>
+<path class="store" d="M400 748a124 12 0 0 1 248 0v76a124 12 0 0 1 -248 0z"/>
+<path class="rim" d="M400 748a124 12 0 0 0 248 0"/>
+<text class="name" x="524" y="776" text-anchor="middle">config/</text>
+<text class="sub" x="524" y="798" text-anchor="middle">router.json, prices.json</text>
+<path class="store" d="M952 748a100 12 0 0 1 200 0v76a100 12 0 0 1 -200 0z"/>
+<path class="rim" d="M952 748a100 12 0 0 0 200 0"/>
+<text class="name" x="1052" y="776" text-anchor="middle">fixtures/</text>
+<text class="sub" x="1052" y="798" text-anchor="middle">recorded.jsonl</text>
+<path class="sync" d="M216 212H288"/>
+<path class="sync" d="M460 248V324"/>
+<path class="sync" d="M304 360H216"/>
+<path class="sync" d="M520 360H640"/>
+<text class="label t-accent" x="528" y="350">route()</text>
+<path class="sync" d="M640 424H424Q412 424 412 436V480"/>
+<text class="label t-accent" x="540" y="444">check()</text>
+<path class="sync" d="M748 440V480"/>
+<text class="label t-accent" x="760" y="466">call()</text>
+<path class="sync" d="M520 527H640"/>
+<text class="label t-accent" x="528" y="517">2nd sample</text>
+<path class="sync" d="M856 527H976"/>
+<text class="label t-accent" x="896" y="517">complete</text>
+<path class="sync" d="M600 588V612"/>
+<path class="read" d="M524 736V696"/>
+<path class="read" d="M1052 736V596"/>
+
+<path class="sync" d="M48 860H112"/><text class="legend" x="124" y="865">sync call</text>
+<path class="read" d="M520 860H584"/><text class="legend" x="596" y="865">read</text>
+</svg>

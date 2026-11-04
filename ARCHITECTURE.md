@@ -22,6 +22,8 @@ The pattern is **ports and adapters**. It fits because a router is a policy over
 
 ## Data flow
 
+Drawn versions of this figure and of the walk-through: [the architecture](docs/diagrams/architecture.svg) and [one run](docs/diagrams/flow.svg).
+
 ```mermaid
 flowchart LR
     task["Task<br/>(label, refund, policy)"] --> signal{"Start tier<br/>from build set,<br/>hard signal"}
